@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.js" integrity="sha512-MnKz2SbnWiXJ/e0lSfSzjaz9JjJXQNb2iykcZkEY2WOzgJIWVqJBFIIPidlCjak0iTH2bt2u1fHQ4pvKvBYy6Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Calculadora de Préstamos</title>
+</head>
+<body>
+    <div id="calculadora1" class="container" style=" font-size: small;">
+        <div class="row" style="text-align: center;">
+            <h2>Simulador de Crédito</h2>
+        </div>
+        <div class="row">
+            <div  class="col">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>
+                                Monto<br>
+                                <input type="number" name="monto" id="input_monto" min="1" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Cantidad de cuotas<br>
+                                <input type="number" name="cuotas" id="input_cuotas" min="1" max="1000" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Tasa de interés<br>
+                                <input type="number" name="tasa" id="input_tasa" min="0.1" style="width: 100%">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Tipo de tasa<br>
+                                <select id="select_tasa_tipo" style="width: 100%">
+                                    <option value="mensual">Mensual</option>
+                                    <option value="anual">Anual</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Periodo de pago<br>
+                                <select id="select_periodo" style="width: 100%">
+                                    <option value="mensual" selected="">Mensual</option>
+                                    <option value="anual">Anual</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                        <th>
+                            <div style="display: flex;">
+                            <input type="button" value="Calcular" onclick="calcular();" style="height: 30px; width: 50%">
+                            <input type="button" value="Borrar" onclick="borrar();" style="height: 30px; width: 50%">
+                            </div>
+                        </th>
+                        <tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="tabla_amortizacion col" style="text-align: center">
+                <div>Valor de la cuota</div>
+                <div id="div-valor-cuota" style="font-weight: bold"></div>
+                <br>
+                <div style="padding: 10px; border: 1px dashed gray; background-color: #0d4393; color: white; border-radius: 10px; -webkit-box-shadow: 10px 10px 60px 0px rgba(0,0,0,0.38);
+                  -moz-box-shadow: 10px 10px 60px 0px rgba(0,0,0,0.38);
+                  box-shadow: 10px 10px 60px 0px rgba(0,0,0,0.38);" id="div-comentario"></div>
+            </div>
+        </div>    
+     
+        <div style="margin-top: 2vw; font-size: x-small;">
+            <table id="table-2" style="width: 100%;  table-layout: fixed; text-align: right; border: 1px gray solid; border-collapse: collapse">
+                <caption>Tabla de amortización</caption>
+                    <tbody><tr>
+                        <th>Número</th>
+                        <th>Interés</th>
+                        <th>Abono al capital</th>
+                        <th>Valor de la cuota</th>
+                        <th>Saldo al capital</th>
+                    </tr>
+                </tbody><tbody id="tbody_1">
+                </tbody>
+            </table>
+        </div>
+    
+        <script src="./Calculadora.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    </div>
+</body>
+</html>
